@@ -9,7 +9,7 @@ This solution comprises two main projects: `TextFilter` and `TextFilter.Tests`. 
 - **Extensions**: Contains the reflection-based code that identifies filter methods within `FilterMethods` and returns a list of `Func` delegates to be executed.
 - **Filters**: This is where the filter methods are defined. If new filters are to be added, they should be placed here.
 - **Interfaces**: Defines all interfaces used in the application. For larger projects, this could potentially be separated into its own project.
-- **Services**: Includes two dependency injection (DI) services initiated at startup: `FilterService` and `FileReader`. `FileReader` is specifically designed as a service to facilitate testing.
+- **Services**: Includes two dependency injection (DI) services initiated at startup: `FilterService` and `FileReaderService`. `FileReaderService` is specifically designed as a service to facilitate testing.
 
 #### Configuration and Running
 
@@ -34,6 +34,8 @@ This project is structured into two main folders for different types of tests:
 
 - **AppSettings.Development.json**: Controls application and system logging settings, including input file path, word separators, filter names, and operational mode settings.
 
-## Enjoy!
+## Get Started
 
 To get started, simply configure the `appsettings.Development.json` as needed and run the application. Ensure the system configuration section keeps `Parallel::Enabled` and `Batching::Enable` set to `false` for the current implementation.
+
+Enjoy!
