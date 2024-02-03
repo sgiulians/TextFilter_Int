@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFilter", "TextFilter\TextFilter.csproj", "{A13E2CED-0582-472E-B82E-4F377028B40B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextFilter.Tests", "TextFilter.Tests\TextFilter.Tests.csproj", "{CE45890C-C87E-4FF0-8FB7-9E2C893252EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A13E2CED-0582-472E-B82E-4F377028B40B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13E2CED-0582-472E-B82E-4F377028B40B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13E2CED-0582-472E-B82E-4F377028B40B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13E2CED-0582-472E-B82E-4F377028B40B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE45890C-C87E-4FF0-8FB7-9E2C893252EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE45890C-C87E-4FF0-8FB7-9E2C893252EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE45890C-C87E-4FF0-8FB7-9E2C893252EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE45890C-C87E-4FF0-8FB7-9E2C893252EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CB1505BC-E42B-44F7-87A1-A38BCD027FD4}
+	EndGlobalSection
+EndGlobal
