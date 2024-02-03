@@ -16,7 +16,9 @@ namespace TextFilter.Tests.IntegrationTests
         private string[] _baseLineExpectations;
 
         private string[] CreateBaselineExpectations(string filePath) =>
-            File.ReadAllLines(filePath)
+            File.ReadAllText(filePath)
+                .Split(_appConfig.WordSeparator
+                    .SelectMany(s => s.ToCharArray()).ToArray())
                 .Where(i => !FilterMethods.MiddleVowelFilter(i))
                 .Where(i => !FilterMethods.LessThanThreeCharactersFilter(i))
                 .Where(i => !FilterMethods.WordContainingTFilter(i))
@@ -30,26 +32,25 @@ namespace TextFilter.Tests.IntegrationTests
             _filterServiceMock = new Mock<IFilterService>();
             _fileReaderServiceMock = new Mock<IFileReaderService>();
 
-
             // CREATE BASELINE EXPECTATIONS
             var testFilePath = Path.Combine(TestContext.CurrentContext.TestDirectory, Path.Combine("IntegrationTests", "words.txt"));
-            _baseLineExpectations = CreateBaselineExpectations(testFilePath);
+            _appConfig = new ApplicationConfiguration
+            {
+                InputFilePath = testFilePath,
+                WordSeparator = new[] { " ", "\n", "\r" },
+                Filters = new[] { "MiddleVowelFilter",
+                        "LessThanThreeCharactersFilter",
+                        "WordContainingTFilter"
+                    }
+            };
 
+            _baseLineExpectations = CreateBaselineExpectations(testFilePath);
 
             // INJECT FILE CONTENT INTO THE MOCK TO TEST AGAINST
             _fileReaderServiceMock.Setup(m => m.ReadAllText(It.IsAny<string>()))
                 .Returns(File.ReadAllText(testFilePath));
 
-            _optionsAppConfigMock.Setup(o => o.Value).Returns(
-                _appConfig = new ApplicationConfiguration
-                {
-                    InputFilePath = testFilePath,
-                    WordSeparator = new[] { " ", "\n", "\r" },
-                    Filters = new[] { "MiddleVowelFilter",
-                        "LessThanThreeCharactersFilter",
-                        "WordContainingTFilter"
-                    }
-                });
+            _optionsAppConfigMock.Setup(o => o.Value).Returns(_appConfig);
                
             _filterServiceMock.Setup(f => f.Filters)
                 .Returns(new List<Func<string, bool>>(ServiceCollectionExtension.LookUpFilters(_appConfig.Filters)));

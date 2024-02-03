@@ -21,7 +21,7 @@ This solution comprises two main projects: `TextFilter` and `TextFilter.Tests`. 
 
 This project is structured into two main folders for different types of tests:
 - **Unit Tests**: Tests for the three provided filters.
-- **Integration Tests**: Includes tests that run the application using a test file (`words.txt`) containing 20K English words. The tests compare the output of `app.Run()` against a predefined baseline.
+- **Integration Tests**: Includes tests that run the application using a test file (`words.txt`) containing the words provided within the pdf as TextInput. The tests compare the output of `app.Run()` against a predefined baseline.
 
 #### Key Points
 
